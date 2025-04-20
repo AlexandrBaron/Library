@@ -59,8 +59,10 @@ model Loan {
   id          Int       @id @default(autoincrement())
   bookId      Int
   userId      Int
-  loanedAt    DateTime  
+  loanedAt    DateTime  @default(now())
+  dueDate     DateTime
   returnedAt  DateTime?
+  status      String    @default("Active")
 
   book        Book      @relation(fields: [bookId], references: [id])
   user        User      @relation(fields: [userId], references: [id])
