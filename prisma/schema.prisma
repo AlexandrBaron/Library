@@ -36,6 +36,7 @@ model Title {
 
 model Book {
   id       Int    @id @default(autoincrement())
+  barcode  String @unique
   titleId  Int
   title    Title  @relation(fields: [titleId], references: [id])
   loaned   Boolean @default(false)
