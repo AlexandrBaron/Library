@@ -1,41 +1,55 @@
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "postgresql"
-    url = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
-model Authors {
-    id Int @id @default(autoincrement())
-    name String
-    books Books[]
+model Author {
+  id     Int      @id @default(autoincrement())
+  name   String
+  titles Title[]
 }
 
-model Books {
-    id Int @id @default(autoincrement())
-    title String
-    publishedAt DateTime
-    authorId Int
-    author Authors @relation(fields: [authorId], references: [id])
-    loans Loans[]
+model Title {
+  id           Int      @id @default(autoincrement())
+  title        String
+  authorId     Int
+  author       Author   @relation(fields: [authorId], references: [id])
+  rating       Float
+  inStock      Int
+  description  String
+  publishedAt  DateTime
+  borrowed     Int
+  freeToLoans  Int
+
+  books        Book[]
 }
 
-model Users {
-    id Int @id @default(autoincrement())
-    name String
-    email String @unique
-    loans Loans[]
+model Book {
+  id       Int    @id @default(autoincrement())
+  titleId  Int
+  title    Title  @relation(fields: [titleId], references: [id])
+  loaned   Boolean @default(false)
+  loans    Loan[]
 }
 
-model Loans {
-    id Int @id @default(autoincrement())
-    bookId Int
-    userId Int
-    loanedAt DateTime
-    returnedAt DateTime
+model User {
+  id      Int     @id @default(autoincrement())
+  name    String
+  email   String  @unique
+  loans   Loan[]
+}
 
-    book Books @relation(fields: [bookId], references: [id])
-    user Users @relation(fields: [userId], references: [id])
+model Loan {
+  id          Int       @id @default(autoincrement())
+  bookId      Int
+  userId      Int
+  loanedAt    DateTime  
+  returnedAt  DateTime?
+
+  book        Book      @relation(fields: [bookId], references: [id])
+  user        User      @relation(fields: [userId], references: [id])
 }

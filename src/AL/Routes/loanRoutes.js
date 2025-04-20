@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const GenericController = require('../Controllers/genericController');
-const loanController = new GenericController('loans');
+const loanController = new GenericController('loan');
 
 router.get('/', loanController.getAll);
 router.get('/:id', loanController.getById);
