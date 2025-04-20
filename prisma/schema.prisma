@@ -24,6 +24,8 @@ model Title {
   publishedAt  DateTime
   borrowed     Int
   freeToLoans  Int
+  genreId      Int
+  genre        Genre    @relation(fields: [genreId], references: [id])
 
   books        Book[]
 }
@@ -52,4 +54,10 @@ model Loan {
 
   book        Book      @relation(fields: [bookId], references: [id])
   user        User      @relation(fields: [userId], references: [id])
+}
+
+model Genre {
+    id Int @id @default(autoincrement())
+    name String
+    titles Title[]
 }
