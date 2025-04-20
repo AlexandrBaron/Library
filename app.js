@@ -6,6 +6,7 @@ const userRoutes = require('./src/AL/Routes/userRoutes');
 const loanRoutes = require('./src/AL/Routes/loanRoutes');
 const genreRoutes = require('./src/AL/Routes/genreRoute');
 const reservationRoutes = require('./src/AL/Routes/reservationRoute');
+const fineRoutes = require('./src/AL/Routes/fineRoutes');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use('/users', userRoutes);
 app.use('/loans', loanRoutes);
 app.use('/genre', genreRoutes);
 app.use('/reservation', reservationRoutes);
+app.use('/fines', fineRoutes);
 
 app.listen(3000, () => {
     console.log('Server running on http://localhost:3000');

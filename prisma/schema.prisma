@@ -68,6 +68,7 @@ model Loan {
 
   book        Book      @relation(fields: [bookId], references: [id])
   user        User      @relation(fields: [userId], references: [id])
+  fine        Fine?
 }
 
 model Genre {
@@ -85,4 +86,13 @@ model Reservation {
 
   user        User @relation(fields: [userId], references: [id])
   book        Book @relation(fields: [bookId], references: [id])
+}
+
+model Fine {
+  id      Int     @id @default(autoincrement())
+  loanId  Int     @unique
+  amount  Float
+  paid    Boolean @default(false)
+
+  loan    Loan    @relation(fields: [loanId], references: [id])
 }
