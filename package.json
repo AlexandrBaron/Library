@@ -1,0 +1,27 @@
+{
+  "name": "js-library",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexandrBaron/Library.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexandrBaron/Library/issues"
+  },
+  "homepage": "https://github.com/AlexandrBaron/Library#readme",
+  "description": "",
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.6.0"
+  }
+}
