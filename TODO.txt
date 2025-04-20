@@ -1,0 +1,62 @@
+﻿# 📚 Knihovna – TODO seznam (Backend)
+
+## 🧱 Základní logika backendu
+- [ ] Přidat autentikaci a autorizaci
+- [ ] Přidat emailing pro rezervaci a vrácení knihy
+- [ ] Validace vstupů na endpointech
+- [ ] Vyřešit SQL injection
+- [ ] Implementovat optimistic concurrency
+- [ ] Vytvořit background job pro mazání zrušených rezervací
+- [ ] Přidat generátor QR kódu pro rezervace
+- [ ] Přidat seeding pro uživatele, knihy, rezervace atd.
+
+## 📘 Výpůjční logika
+- [ ] Nastavit max. počet výpůjček na uživatele
+- [ ] Nastavit max. počet výpůjček jednoho titulu
+- [ ] Nastavit max. délku výpůjčky
+- [ ] Umožnit prodloužení výpůjčky
+
+---
+
+## 👤 Uživatelé
+
+### 📌 Vlastnosti a stav
+- [ ] Přidat stav `active` – umožní měkké smazání účtu bez porušení integrity DB
+- [ ] Po 5 letech neaktivity automaticky mazat záznamy uživatele
+- [ ] Přidat stav "blokován" (např. pro nevrácení knihy, překročení limitu, nezaplacení)
+
+### ✨ Funkce
+- [ ] Uživatel může vytvořit rating knihy, kterou měl půjčenou
+
+---
+
+## 📚 Knihy
+
+### 📌 Vlastnosti a metadata
+- [ ] Přidat žánry
+- [ ] Přidat hodnocení (rating)
+- [ ] Přidat popis
+- [ ] Přidat stav `active` – měkké mazání
+
+### 🏗 Úprava modelu
+- [ ] Oddělit entitu `Titul` (např. "1984") a konkrétní kus (`Kniha`) – pro sledování jednotlivých exemplářů
+- [ ] Přidat podporu pro audioknihy a e-booky
+
+---
+
+## 🌐 Endpointy
+
+### 🔄 Rezervace
+- [ ] Vytvoření rezervace (bez automatického uzavření)
+- [ ] Uzavření výpůjčky
+- [ ] Prodloužení výpůjčky
+
+### 📖 Knihy
+- [ ] Vyhledávání podle jména
+- [ ] Vyhledávání podle autora
+
+### 👥 Uživatelé
+- [ ] Vytvoření hodnocení knihy (pouze pokud ji měl půjčenou)
+
+---
+

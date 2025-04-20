@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../Controllers/authorController');
+const GenericController = require('../Controllers/genericController');
+const authorController = new GenericController('authors');
 
-router.get('/', controller.getAllAuthors);
-router.get('/:id', controller.getAuthorById);
-router.post('/', controller.createAuthor);
-router.delete('/delete/:id', controller.deleteAuthor)
-router.put('/update/:id', controller.updateAuthor)
+router.get('/', authorController.getAll);
+router.get('/:id', authorController.getById);
+router.post('/', authorController.create);
+router.delete('/delete/:id', authorController.delete)
+router.put('/update/:id', authorController.update)
 
 module.exports = router;
