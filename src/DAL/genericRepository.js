@@ -3,7 +3,7 @@ const client = new PrismaClient();
 
 class GenericRepository {
     constructor(modelName, relations = []){
-        this.model = client[modelName.toLowerCase()];
+        this.model = client[modelName];
         this.relations = relations;
     }
 

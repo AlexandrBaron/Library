@@ -96,3 +96,12 @@ model Fine {
 
   loan    Loan    @relation(fields: [loanId], references: [id])
 }
+
+model ActionLog {
+  id        Int       @id @default(autoincrement())
+  action    String  
+  entity    String
+  entityId  Int
+  message   String?
+  createdAt DateTime  @default(now())
+}
