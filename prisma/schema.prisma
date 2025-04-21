@@ -18,20 +18,24 @@ model Author {
 }
 
 model Title {
-  id           Int      @id @default(autoincrement())
-  title        String
-  authorId     Int
-  author       Author   @relation(fields: [authorId], references: [id])
-  rating       Float
-  inStock      Int
-  description  String
-  publishedAt  DateTime
-  borrowed     Int
-  freeToLoans  Int
-  genreId      Int
-  genre        Genre    @relation(fields: [genreId], references: [id])
+  id            Int      @id @default(autoincrement())
+  title         String
+  authorId      Int
+  author        Author   @relation(fields: [authorId], references: [id])
+  rating        Float
+  inStock       Int
+  description   String
+  publishedAt   DateTime
+  borrowed      Int
+  freeToLoans   Int
+  isbn          String
+  numberOfPages Int
+  coverUrl      String
+  language      String
+  genreId       Int
+  genre         Genre    @relation(fields: [genreId], references: [id])
 
-  books        Book[]
+  books         Book[]
 }
 
 model Book {
