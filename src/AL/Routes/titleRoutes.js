@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const GenericController = require('../Controllers/genericController');
-const titleController = new GenericController('title');
+const TitleController = require('../Controllers/titleController');
+const titleController = new TitleController();
 
-router.get('/', titleController.getAll);
+router.get('/filter', titleController.findFiltered);
 router.get('/:id', titleController.getById);
+router.get('/', titleController.getAll);
 router.post('/', titleController.create);
 router.delete('/delete/:id', titleController.delete)
 router.put('/update/:id', titleController.update)

@@ -25,7 +25,7 @@ model Title {
   rating        Float
   inStock       Int
   description   String
-  publishedAt   DateTime
+  publishedAt   Int
   borrowed      Int
   freeToLoans   Int
   isbn          String
